@@ -1,0 +1,4 @@
+# Ignore node modules for both client and server
+node_modules/
+# Ignore sensitive config files
+config/serverConfig.js

@@ -6,4 +6,4 @@ const userSchema = mongoose.Schema({
     role:{type: String,default:'user'},
     banned:{type: Boolean,default:false}
 });
-exports.User = mongoose.model('User',userSchema);
+exports.User = mongoose.model('User',userSchema);   

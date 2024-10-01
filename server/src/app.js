@@ -11,7 +11,7 @@ const {PORT} = require("../config/serverConfig");
 
 db.on("error", (err) => console.error("Connection failed:", err));
 db.once("open", () =>
-  console.log("Connection successful at 27017/kiranaExpress")
+  console.log("Connection successful at mongodb+srv://ghoshsurit:<>@kiranaexpress.k9suy.mongodb.net/kiranaExpress")
 );
 
 app.use("/api", userRoutes);

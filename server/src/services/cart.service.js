@@ -38,29 +38,66 @@ exports.plusProductQuantityService = async (data) =>{
         const {userId,products}= data;
         const existingUser= await Cart.findOne({userId:userId});
         let errObj=null;
-        let updatedProduct=null;
         if(existingUser){
-            products.forEach((i)=> {
-                existingProduct=existingUser.products.find((j)=>j.productId.toString()===i.productId);
-                console.log('45:',existingProduct);
+                existingProduct=existingUser.products.find((j)=>j.productId.toString()===products[0].productId);
                 if(existingProduct){
                     existingProduct.quantity+=1;
                 }
                 else{
                     errObj={status:404, error :`Product does'nt Exist`}
                 }
-            });
             if(errObj){
                 return errObj;
             }
-            existingUser.totalPrice=existingUser.reduce((acc,cur)=>acc+Number(cur.quantity)*Number(cur.price),0);
+            existingUser.totalPrice=existingUser.products.reduce((acc,cur)=>acc+Number(cur.quantity)*Number(cur.price),0);
             await existingUser.save();
             return {message:"Quantity Updated Successfully!",data:existingUser}
-            //You have to resume testing for this api and write minus yourself
         }
         else{
             return  { status: 404, error: `User does'nt exist` }
         }
+    }
+    catch(err){
+        return { status: 500, error: err.message };
+    }
+}
+exports.minusProductQuantityService = async (data)=>{
+    try{
+        const {userId,products} = data;
+        const existingUser = await Cart.findOne({userId:userId});
+        if(existingUser){
+            const existingProduct = existingUser.products.find((i)=>i.productId.toString()===products[0].productId);
+            if(existingProduct)
+                existingProduct.quantity-=1;
+            else
+                return {status: 404,error:"Product does'nt exist"};
+            existingUser.totalPrice = existingUser.products.reduce((acc,curr)=>acc+Number(curr.quantity)*Number(curr.price),0);
+            await existingUser.save();
+            return {message:"Quantity Updated Successfully!",data:existingUser}
+        }
+        else
+            return {status: 404,error:"User does'nt exist"};
+    }
+    catch(err){
+        return { status: 500, error: err.message };
+    }
+}
+exports.deleteCartService = async (data)=>{
+    try{
+        const user = data.userId;
+        const product = data.productId;
+        if(user && product){
+            const cart = await Cart.findOneAndUpdate({userId:user},{$pull:{ products: { productId: product}}},{new:true});
+            if(cart){
+                cart.totalPrice = cart.products.reduce((acc,curr)=>acc+Number(curr.quantity)*Number(curr.price),0);
+                await cart.save();
+                return {message:"Product Deleted Successfully!",data:cart};
+            }
+            else
+                return {status: 400,error:"Product Deletion Unsuccessfull"};
+        }
+        else
+            return {status: 404,error:"User or Product does'nt exist"};
     }
     catch(err){
         return { status: 500, error: err.message };

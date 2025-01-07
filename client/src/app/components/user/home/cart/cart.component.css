@@ -1,0 +1,9 @@
+mat-sidenav-container {
+    height: 86.6vh;
+  }
+  mat-sidenav-content,mat-sidenav{
+    width: 30%;
+  }
+  mat-sidenav{
+    background-color: white;
+  }

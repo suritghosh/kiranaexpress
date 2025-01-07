@@ -1,0 +1,91 @@
+// Custom Theming for Angular Material
+@use '@angular/material' as mat;
+
+// Include the core styles for Angular Material.
+@include mat.core();
+
+// Define custom primary palette using custom shades.
+
+$client-primary: mat.define-palette((
+  50: #f8e6ff,
+  100: #ebccff,
+  200: #d9b3ff,
+  300: #c299ff,
+  400: #b380ff,
+  500: #cc99ff, // Main custom primary color (moved to 500)
+  600: #b380e6,
+  700: #9966cc,
+  800: #804db3,
+  900: #663399,
+  A100: #f3e0ff,
+  A200: #e0bfff,
+  A400: #b380ff,
+  A700: #9933ff,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #fff,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #fff,
+    A700: #fff,
+  )
+));
+
+// Define custom accent palette.
+$client-accent: mat.define-palette((
+  50: #000,
+  100: #000,
+  200: #000,
+  300: #000,
+  400: #fff,
+  500: #fff,
+  600: #fff,
+  700: #fff,
+  800: #fff,
+  900: #fff,
+  A100: #000,
+  A200: #000,
+  A400: #fff,
+  A700: #fff,
+  contrast: (
+    50: #000,
+    100: #000,
+    200: #000,
+    300: #000,
+    400: #fff,
+    500: #fff,
+    600: #fff,
+    700: #fff,
+    800: #fff,
+    900: #fff,
+    A100: #000,
+    A200: #000,
+    A400: #fff,
+    A700: #fff,
+  )
+));
+
+// Define custom warn palette.
+$client-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme configuration.
+$client-theme: mat.define-light-theme((
+  color: (
+    primary: $client-primary,
+    accent: $client-accent,
+    warn: $client-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// Include the generated theme styles for all Angular Material components.
+@include mat.all-component-themes($client-theme);

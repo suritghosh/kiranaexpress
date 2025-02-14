@@ -1,1 +1,23 @@
-<p>login works!</p>
+<app-dialog>
+    <form class="example-form" [formGroup]="loginForm">
+        <h3 style="color: #cc99ff;font-weight: 600;font-size: 1.3vw;">Login</h3>  
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email">
+          <mat-hint *ngIf="email?.hasError('required') && email?.touched " style="color: red;"> Email is required </mat-hint>
+          <mat-hint *ngIf="email?.hasError('email') && email?.touched" style="color: red;"> Email is invalid </mat-hint>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder=""formControlName="password">
+           <!-- <div class="hint-container"> -->
+            <mat-hint *ngIf="password?.hasError('required') && password?.touched " style="color: red;"><div> Password is required</div> </mat-hint>
+            <mat-hint *ngIf="password?.hasError('minlength') && password?.touched" style="color: red;"> <div>Password should be atleast 8 characters</div> </mat-hint>
+            <mat-hint *ngIf="password?.hasError('pattern') && password?.touched" style="color: red;"> <div>Password should have atleast 1 uppercase, 1 lowercase letter, 1 number & 1 special character</div> </mat-hint>
+            <mat-hint *ngIf="password?.hasError('pattern') && password?.touched" style="color: red;"> <div>Password should have atleast 1 uppercase, 1 lowercase letter, 1 number & 1 special character</div> </mat-hint>
+           <!-- </div> -->
+          </mat-form-field>
+          <button class="login-btn" mat-raised-button color="primary" style="color: white"><span style="font-size: 1vw;">Continue</span></button>
+          <a href="#" style="color: #cc99ff; text-decoration: none;">New user? Register now!</a>
+      </form>
+</app-dialog>

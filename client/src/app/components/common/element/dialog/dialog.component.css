@@ -1,0 +1,14 @@
+.login-container{
+    width: 25vw;
+    min-height: 40vh; 
+    /* padding: 2em; */
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    /* height: 100vh; */
+}
+
+::ng-deep .mat-mdc-dialog-container .mat-mdc-dialog-surface  {
+    border-radius: 10px;
+    padding: 2em;
+}

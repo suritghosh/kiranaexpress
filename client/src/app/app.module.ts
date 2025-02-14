@@ -7,6 +7,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/common/element/navbar/navbar.component';
@@ -40,7 +41,11 @@ import { DeliveryDashboardComponent } from './components/delivery/delivery-dashb
 import { OrdersComponent } from './components/delivery/orders/orders.component';
 import { NavigationComponent } from './components/delivery/navigation/navigation.component';
 import { LandingComponent } from './components/landing/landing/landing.component';
-
+import { DialogComponent } from './components/common/element/dialog/dialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms'; 
+import {ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +78,8 @@ import { LandingComponent } from './components/landing/landing/landing.component
     DeliveryDashboardComponent,
     OrdersComponent,
     NavigationComponent,
-    LandingComponent
+    LandingComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -85,9 +91,15 @@ import { LandingComponent } from './components/landing/landing/landing.component
     MatRippleModule,
     MatSidenavModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule, 
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // entryComponents: []
 })
 export class AppModule { }

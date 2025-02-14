@@ -4,6 +4,7 @@ ul {
     display: flex;
     gap:3em;
     /* margin: 1em; */
+    /* padding: 1em 0em 1em 1em; */
     padding: 1em;
     
 }
@@ -23,10 +24,14 @@ li {
     padding: 1em;
     border-radius: .8em;
     border: solid 0px gray;
-    box-shadow: 0px 0px 3px rgb(112, 112, 112);
+    /* box-shadow: 0px 0px 3px rgb(112, 112, 112); */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+
     padding-left: 3em;
     position: relative;
     right: 3em;
+    transition: box-shadow 0.3s ease;
+
     
 }
 #location{
@@ -39,7 +44,7 @@ li {
     min-width: 12em;
 }
 #location:hover {
-    color: rgb(243, 243, 243); /* Slightly darker background on hover */
+    color: rgb(243, 243, 243); 
 }
 
 #img{
@@ -48,7 +53,9 @@ li {
 }
 #search:focus{
     outline: none;
-    box-shadow: 0px 0px 3px rgb(30, 30, 30);
+    /* box-shadow: 0px 0px 3px rgb(30, 30, 30); */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+
 }
 .deliveryIn{
     font-size: 0.7em;
@@ -66,4 +73,28 @@ li {
     right: .3em;
     top: .35em;
     z-index: 999;
+}
+.profile{
+    cursor: pointer;
+    width: 7.8rem;
+    /* padding:1.2em 1.5em 1.2em 1.5em; */
+    padding: .067em 0em .067em .9em;
+    position: relative;
+    border: 1.5px solid rgb(255, 255, 255);
+    /* left: .9em; */
+    border-radius: 4px;
+    font-size:.75em;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    color: rgb(255, 255, 255);
+}
+
+.profile:hover {
+    color: rgb(243, 243, 243);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+    border: 1.5px solid rgb(243, 243, 243);
+}
+.cartBtn{
+    position: relative;
+    /* left: 3em; */
 }

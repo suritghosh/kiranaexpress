@@ -1,30 +1,32 @@
-.example-full-width{
+.example-full-width {
     width: 50vh;
+    margin-bottom: 1em;
 }
+
 .example-form {
     display: flex;
     flex-direction: column; /* Stack fields vertically */
-    gap: 1.5em; /* Add spacing between fields */
-    align-items: center; /* Optional: Center form content */
+    align-items: center; /* Center form content */
 }
-.login-btn{
+
+.login-btn {
     width: 50vh;
     height: 8vh;
+    margin-bottom: 2.5em;
 }
-mat-hint {
-    display: block !important;
-    font-size: 0.8rem;
-    white-space: normal;
-    word-wrap: break-word;
-    overflow-wrap: break-word; /* Ensures text wraps properly */
-    max-width: 100%;
-    text-align: left;
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-error {
     color: red;
-  }
-  ::ng-deep .mat-mdc-form-field-hint-wrapper {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    width: 90% !important;
-  }
-  
+    text-align: left;
+
+}
+
+::ng-deep .mat-mdc-form-field-error-wrapper {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,23 +1,67 @@
-<app-dialog>
-    <form class="example-form" [formGroup]="loginForm">
-        <h3 style="color: #cc99ff;font-weight: 600;font-size: 1.3vw;">Login</h3>  
-        <mat-form-field class="example-full-width">
-          <mat-label>Email</mat-label>
-          <input type="email" matInput placeholder="Ex. pat@example.com" formControlName="email">
-          <mat-hint *ngIf="email?.hasError('required') && email?.touched " style="color: red;"> Email is required </mat-hint>
-          <mat-hint *ngIf="email?.hasError('email') && email?.touched" style="color: red;"> Email is invalid </mat-hint>
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>Password</mat-label>
-            <input type="password" matInput placeholder=""formControlName="password">
-           <!-- <div class="hint-container"> -->
-            <mat-hint *ngIf="password?.hasError('required') && password?.touched " style="color: red;"><div> Password is required</div> </mat-hint>
-            <mat-hint *ngIf="password?.hasError('minlength') && password?.touched" style="color: red;"> <div>Password should be atleast 8 characters</div> </mat-hint>
-            <mat-hint *ngIf="password?.hasError('pattern') && password?.touched" style="color: red;"> <div>Password should have atleast 1 uppercase, 1 lowercase letter, 1 number & 1 special character</div> </mat-hint>
-            <mat-hint *ngIf="password?.hasError('pattern') && password?.touched" style="color: red;"> <div>Password should have atleast 1 uppercase, 1 lowercase letter, 1 number & 1 special character</div> </mat-hint>
-           <!-- </div> -->
-          </mat-form-field>
-          <button class="login-btn" mat-raised-button color="primary" style="color: white"><span style="font-size: 1vw;">Continue</span></button>
-          <a href="#" style="color: #cc99ff; text-decoration: none;">New user? Register now!</a>
-      </form>
+<app-dialog *ngIf="toggle">
+  <form class="example-form" [formGroup]="loginForm">
+    <h3
+      style="
+        color: #cc99ff;
+        font-weight: 600;
+        font-size: 1.3vw;
+        margin-bottom: 2.5em;
+      "
+    >
+      Login
+    </h3>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        matInput
+        placeholder="Ex. pat@example.com"
+        formControlName="email"
+      />
+      <mat-error *ngIf="email?.hasError('required') && email?.touched">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="email?.hasError('email') && email?.touched">
+        Email is invalid
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        matInput
+        formControlName="password"
+      />
+      <mat-error *ngIf="password?.hasError('required') && password?.touched">
+        Password is required
+      </mat-error>
+      <mat-error *ngIf="password?.hasError('minlength') && password?.touched">Password should be at least 8 characters
+      </mat-error>
+      <mat-error *ngIf="password?.hasError('pattern') && password?.touched">Password should have at least 1 uppercase, 1 lowercase, 1 number, and 1 special character
+      </mat-error>
+    </mat-form-field>
+
+    <button
+      [disabled]="loginForm.invalid"
+      [ngStyle]="{
+        'margin-top':
+          password?.hasError('pattern') && password?.hasError('minlength') && password?.touched
+            ? '2.5em'
+            : password?.hasError('pattern') && password?.touched
+            ? '1.4em'
+            : '.5em'
+      }"
+      class="login-btn"
+      mat-raised-button
+      color="primary"
+      style="color: white"
+    >
+      <span style="font-size: 1vw">Continue</span>
+    </button>
+    <button  (click)="toggle=!toggle" style="color: #cc99ff; text-decoration: none;cursor: pointer;background-color: transparent;border: none;"
+      >New user? Register now!</button
+    >
+  </form>
 </app-dialog>
+<app-register *ngIf="!toggle"></app-register>

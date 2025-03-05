@@ -1,0 +1,21 @@
+<app-navbar>
+    <ul>
+        <li id="img"><img src="../../assets/photos/Media.png" height="80%" width="80%" alt="Logo"></li>
+        <li id="searchbar">
+            <span>
+                <mat-icon class="search-icon">search</mat-icon>
+            </span>
+            <input type="text" placeholder="Search" id="search"></li> 
+        <li id="location" matRipple>
+            <span style="position: relative;top: .5em;" class="deliveryIn">Delivery in 8 minutes</span> 
+            <br>
+            <span style="position: relative;bottom: .5em;" class="deliveryIn">F25, Madhu Vihar, I.P.Extension, ...</span>
+            
+        </li>
+        <li class="cartBtn"><button (click)="toggleCart()" mat-raised-button color="accent" style="color: #cc99ff;"><mat-icon id="cart">shopping_basket</mat-icon>Cart</button></li>
+        
+        <li class="profile" *ngIf="login">Profile</li>
+        <li class="profile" *ngIf="!login" matRipple (click)="openDialog()">Login</li>
+    </ul>
+</app-navbar>
+<app-cart [isCartOpen]="isCartOpen" ></app-cart>

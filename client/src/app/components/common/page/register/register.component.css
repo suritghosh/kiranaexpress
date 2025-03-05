@@ -1,0 +1,32 @@
+.example-full-width {
+    width: 50vh;
+    margin-bottom: 1em;
+}
+
+.example-form {
+    display: flex;
+    flex-direction: column; /* Stack fields vertically */
+    align-items: center; /* Center form content */
+}
+
+.login-btn {
+    width: 50vh;
+    height: 8vh;
+    margin-bottom: 2.5em;
+}
+
+.error-container {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-error {
+    color: red;
+    text-align: left;
+
+}
+
+::ng-deep .mat-mdc-form-field-error-wrapper {
+    display: flex;
+    flex-direction: column;
+}

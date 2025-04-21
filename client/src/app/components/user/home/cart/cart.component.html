@@ -1,4 +1,71 @@
 <mat-sidenav-container>
-  <mat-sidenav [(opened)]="isCartOpen" position="end" opened>Cart</mat-sidenav>
-  <!-- <mat-sidenav-content>Cart</mat-sidenav-content> -->
+  <mat-sidenav mode="over" [(opened)]="isCartOpen" position="end" opened
+    >
+    <app-items></app-items>
+    <app-items></app-items>
+    <app-items></app-items>
+    <app-items></app-items>
+    <app-items></app-items>
+    <app-items></app-items>
+    <app-items></app-items>
+    <app-items></app-items>
+    <app-items></app-items>
+    <app-items></app-items>
+    <app-items></app-items>
+    <app-items></app-items>
+    <mat-card class="bill-card">
+      <h3>Bill details</h3>
+    
+      <div class="bill-row">
+        <div class="label">
+          <mat-icon>shopping_cart</mat-icon>
+          Items total
+          <span class="saved">Saved ₹20</span>
+        </div>
+        <div class="price">
+          <s>₹205</s> ₹185
+        </div>
+      </div>
+    
+      <div class="bill-row">
+        <div class="label">
+          <mat-icon>local_shipping</mat-icon>
+          Delivery charge
+          <mat-icon matTooltip="Standard delivery charge applies" style="font-size: 16px;">info</mat-icon>
+        </div>
+        <div class="price">
+          <s>₹25</s> <span class="free">FREE</span>
+        </div>
+      </div>
+    
+      <div class="bill-row total">
+        <strong>Grand total</strong>
+        <strong>₹189</strong>
+      </div>
+    
+      <div class="savings-bar">
+        Your total savings <span>₹20</span>
+      </div>
+    </mat-card>
+    
+    <br><br><br><br>
+    <button mat-raised-button color="primary" style="position: absolute; bottom: 0px;width: 96.77%;color: white;padding: 30px;">Click to Pay</button>
+    </mat-sidenav
+  >
+  <mat-sidenav-content>
+    <app-categories></app-categories>
+    <h1 style="margin-left: 10%;">Explore Kirana Shops!</h1>
+    <app-shops></app-shops>
+    <app-shops></app-shops>
+    <app-shops></app-shops>
+    <app-shops></app-shops>
+    <app-shops></app-shops>
+    <app-shops></app-shops>
+    <app-shops></app-shops>
+    <app-shops></app-shops>
+    <app-shops></app-shops>
+    <footer>
+      <p>&copy; 2025 Kirana Express | Contact Us | About Us | Blog</p>
+    </footer>
+  </mat-sidenav-content>
 </mat-sidenav-container>

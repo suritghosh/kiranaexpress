@@ -1,1 +1,8 @@
-<p>categories works!</p>
+<ngx-slick-carousel
+  class="carousel"
+  [config]="slideConfig"
+>
+  <div ngxSlickItem *ngFor="let img of images" class="slide">
+    <img [src]="img" alt="carousel image" width="1000px" />
+  </div>
+</ngx-slick-carousel>

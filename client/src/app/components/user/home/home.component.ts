@@ -41,9 +41,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     // Open the dialog when the component initializes.
-    setTimeout(() => {
-      this.openDialog();
-    });
+    // setTimeout(() => {
+    //   this.openDialog();
+    // });
   }
 
   toggleCart() {

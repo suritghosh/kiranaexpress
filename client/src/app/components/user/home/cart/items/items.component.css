@@ -1,0 +1,37 @@
+.qty-container {
+    background-color: #cc99ff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: auto;
+    /* margin-right: 10px; */
+    /* padding: 2px 6px; */
+    height: 35px;
+
+  }
+  
+  .qty {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    min-width: 20px;
+    text-align: center;
+  }
+  
+  /* Shrink the buttons */
+  .qty-container button {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    min-width: 0;
+    line-height: 1;
+    font-size: 16px;
+    color: white !important;
+    background: transparent !important;
+  }
+  .shop-details{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}

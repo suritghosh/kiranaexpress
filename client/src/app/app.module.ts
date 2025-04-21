@@ -42,10 +42,15 @@ import { OrdersComponent } from './components/delivery/orders/orders.component';
 import { NavigationComponent } from './components/delivery/navigation/navigation.component';
 import { LandingComponent } from './components/landing/landing/landing.component';
 import { DialogComponent } from './components/common/element/dialog/dialog.component';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms'; 
 import {ReactiveFormsModule} from '@angular/forms';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ShopsComponent } from './components/user/home/shops/shops.component';
+import { ItemsComponent } from './components/user/home/cart/items/items.component';
+// import { SlickCarouselModule } from 'ngx-slick-carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +84,9 @@ import {ReactiveFormsModule} from '@angular/forms';
     OrdersComponent,
     NavigationComponent,
     LandingComponent,
-    DialogComponent
+    DialogComponent,
+    ShopsComponent,
+    ItemsComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,8 +102,10 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    MatCardModule,
     FormsModule, 
     ReactiveFormsModule,
+    SlickCarouselModule 
   ],
   providers: [],
   bootstrap: [AppComponent],

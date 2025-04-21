@@ -1,0 +1,19 @@
+.slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; 
+
+}
+
+.slick-prev::before, .slick-next::before {
+    color: black !important;
+    position: relative;
+}
+.carousel{
+    overflow: hidden;
+    margin-top: 25px;
+}
+img{
+    border-radius: 25px;
+}
